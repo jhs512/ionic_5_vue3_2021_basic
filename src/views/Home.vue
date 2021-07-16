@@ -13,7 +13,9 @@
         </ion-toolbar>
       </ion-header>
 
-      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque aut vero sit, corporis aliquam velit, soluta necessitatibus quaerat exercitationem voluptatum temporibus obcaecati magnam suscipit. Recusandae, veniam similique. Culpa, distinctio maxime?</div>
+      <div
+        class="bg-red-600 h-full"
+      >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque aut vero sit, corporis aliquam velit, soluta necessitatibus quaerat exercitationem voluptatum temporibus obcaecati magnam suscipit. Recusandae, veniam similique. Culpa, distinctio maxime?</div>
     </ion-content>
   </ion-page>
 </template>
