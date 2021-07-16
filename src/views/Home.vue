@@ -16,6 +16,7 @@
       <div class="flex items-center justify-center h-full bg-red-600">
         <div>
           <font-awesome-icon icon="user-secret" class="text-4xl text-green-700 cursor-pointer" />
+          <span @click="main.counter++;">{{ main.doubleCount }}</span>
         </div>
       </div>
     </ion-content>
@@ -25,6 +26,9 @@
 <script setup lang="ts">
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 import { defineComponent } from 'vue';
+import { useMainStore } from '@/store/main';
+
+const main = useMainStore()
 </script>
 
 <style scoped>
