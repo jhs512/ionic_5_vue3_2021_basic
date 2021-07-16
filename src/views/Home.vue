@@ -13,9 +13,11 @@
         </ion-toolbar>
       </ion-header>
 
-      <div
-        class="bg-red-600 h-full"
-      >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque aut vero sit, corporis aliquam velit, soluta necessitatibus quaerat exercitationem voluptatum temporibus obcaecati magnam suscipit. Recusandae, veniam similique. Culpa, distinctio maxime?</div>
+      <div class="flex items-center justify-center h-full bg-red-600">
+        <div>
+          <font-awesome-icon icon="user-secret" class="text-4xl text-green-700 cursor-pointer" />
+        </div>
+      </div>
     </ion-content>
   </ion-page>
 </template>

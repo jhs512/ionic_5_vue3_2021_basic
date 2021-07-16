@@ -20,12 +20,20 @@ import "@ionic/vue/css/text-transformation.css";
 import "@ionic/vue/css/flex-utils.css";
 import "@ionic/vue/css/display.css";
 
+/* 폰트어썸 */
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
 /* Theme variables */
 import "./theme/variables.css";
 
 import "./index.css";
 
+library.add(faUserSecret);
+
 const app = createApp(App)
+  .component("font-awesome-icon", FontAwesomeIcon)
   .use(IonicVue)
   .use(router);
 
