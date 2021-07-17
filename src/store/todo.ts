@@ -15,7 +15,11 @@ export const useTodoStore = defineStore({
     todos: [] as Todo[],
   }),
   // optional getters
-  getters: {},
+  getters: {
+    latestTodos(): Todo[] {
+      return [...this.todos].reverse();
+    },
+  },
   // optional actions
   actions: {
     addTodo(newTodoTitle: string) {
