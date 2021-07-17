@@ -22,7 +22,7 @@ import "@ionic/vue/css/display.css";
 
 /* 폰트어썸 */
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
+import { faUserSecret, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 /* 피니아 */
@@ -35,6 +35,7 @@ import "./index.css";
 
 // 폰트어썸 아이콘 등록 시작, 여기서 등록된 것만 사용가능
 library.add(faUserSecret);
+library.add(faPlus);
 // 폰트어썸 아이콘 등록 끝
 
 const app = createApp(App)

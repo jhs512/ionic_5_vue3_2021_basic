@@ -13,22 +13,39 @@
         </ion-toolbar>
       </ion-header>
 
-      <div class="flex items-center justify-center h-full bg-red-600">
-        <div>
-          <font-awesome-icon icon="user-secret" class="text-4xl text-green-700 cursor-pointer" />
-          <span @click="main.counter++;">{{ main.doubleCount }}</span>
-        </div>
-      </div>
+      <main class="flex flex-col">
+        <section class="mt-6 section section-write-todo">
+          <hr class="mb-6" />
+          <div class="con-padd">
+            <ion-badge color="primary">
+              <span>새 할일 등록</span>
+            </ion-badge>
+          </div>
+          <ion-item>
+            <ion-label position="stacked">새 할일</ion-label>
+            <ion-input v-model="newTodoTitleRef"></ion-input>
+          </ion-item>
+          <div class="mt-4 btns con-padd">
+            <ion-button size="small">
+              <font-awesome-icon slot="start" icon="plus" />
+              <span class="ml-1">할일 등록</span>
+            </ion-button>
+          </div>
+        </section>
+      </main>
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
-import { defineComponent } from 'vue';
 import { useMainStore } from '@/store/main';
+import { IonBadge, IonButton, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { ref } from '@vue/reactivity';
 
 const main = useMainStore()
+
+const newTodoTitleRef = ref("");
+
 </script>
 
 <style scoped>
