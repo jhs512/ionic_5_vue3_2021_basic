@@ -31,6 +31,7 @@
               <span class="ml-1">할일 등록</span>
             </ion-button>
           </div>
+          <div class="con-padd">{{ todoStore.todos }}</div>
         </section>
       </main>
     </ion-content>
@@ -38,11 +39,11 @@
 </template>
 
 <script setup lang="ts">
-import { useMainStore } from '@/store/main';
+import { useTodoStore } from '@/store/todo';
 import { IonBadge, IonButton, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 import { ref } from '@vue/reactivity';
 
-const main = useMainStore()
+const todoStore = useTodoStore()
 
 const newTodoTitleRef = ref("");
 
@@ -54,7 +55,7 @@ function addNewTodo() {
     return;
   }
 
-  console.log(`등록 ${newTodoTitleRef.value}`);
+  todoStore.addTodo(newTodoTitleRef.value);
   newTodoTitleRef.value = '';
 }
 </script>
