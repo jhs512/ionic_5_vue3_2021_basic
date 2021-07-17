@@ -26,7 +26,7 @@
             <ion-input v-model="newTodoTitleRef"></ion-input>
           </ion-item>
           <div class="mt-4 btns con-padd">
-            <ion-button size="small">
+            <ion-button size="small" @click="addNewTodo">
               <font-awesome-icon slot="start" icon="plus" />
               <span class="ml-1">할일 등록</span>
             </ion-button>
@@ -46,6 +46,17 @@ const main = useMainStore()
 
 const newTodoTitleRef = ref("");
 
+function addNewTodo() {
+  newTodoTitleRef.value = newTodoTitleRef.value.trim()
+
+  if (newTodoTitleRef.value.length == 0) {
+    alert('새 할일을 입력해주세요.');
+    return;
+  }
+
+  console.log(`등록 ${newTodoTitleRef.value}`);
+  newTodoTitleRef.value = '';
+}
 </script>
 
 <style scoped>
