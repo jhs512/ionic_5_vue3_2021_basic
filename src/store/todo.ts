@@ -1,8 +1,10 @@
+import { getNowDateStr } from "@/util";
 import { defineStore } from "pinia";
 
 export interface Todo {
   id: number;
   title: string;
+  regDate: string;
 }
 
 export const useTodoStore = defineStore({
@@ -25,6 +27,7 @@ export const useTodoStore = defineStore({
     addTodo(newTodoTitle: string) {
       const newTodo = {} as Todo;
       newTodo.id = ++this.lastId;
+      newTodo.regDate = getNowDateStr();
       newTodo.title = newTodoTitle;
       this.todos.push(newTodo);
     },

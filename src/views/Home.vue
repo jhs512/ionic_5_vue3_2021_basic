@@ -45,11 +45,27 @@
               <ion-label>목록</ion-label>
             </ion-list-header>
             <ion-item v-for="todo in todoStore.latestTodos" :key="todo.id">
-              <ion-label>{{ todo.title }}</ion-label>
-              <ion-button slot="end" size="small" color="danger" @click="deleteTodo(todo)">
-                <font-awesome-icon slot="start" icon="minus" />
-                <span class="ml-1">삭제</span>
-              </ion-button>
+              <div class="flex">
+                <ion-badge color="primary">
+                  <span>{{ todo.id }}</span>
+                </ion-badge>
+
+                <ion-badge color="secondary" class="ml-1">
+                  <span>{{ todo.regDate.substr(2, 14) }}</span>
+                </ion-badge>
+
+                <div class="ml-1">{{ todo.title }}</div>
+              </div>
+              <div slot="end" class="flex">
+                <ion-button size="small" color="warning">
+                  <font-awesome-icon slot="start" icon="edit" />
+                  <span class="ml-1">수정</span>
+                </ion-button>
+                <ion-button size="small" color="danger" @click="deleteTodo(todo)">
+                  <font-awesome-icon slot="start" icon="minus" />
+                  <span class="ml-1">삭제</span>
+                </ion-button>
+              </div>
             </ion-item>
           </ion-list>
         </section>
@@ -59,7 +75,7 @@
 </template>
 
 <script setup lang="ts">
-import { useTodoStore } from '@/store/todo';
+import { Todo, useTodoStore } from '@/store/todo';
 import { IonBadge, IonButton, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonListHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 import { ref } from '@vue/reactivity';
 
