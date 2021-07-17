@@ -28,5 +28,11 @@ export const useTodoStore = defineStore({
       newTodo.title = newTodoTitle;
       this.todos.push(newTodo);
     },
+    deleteTodo(todo: Todo) {
+      const deleteTodoIndex = this.todos.findIndex(
+        (todoInLoop: Todo) => todoInLoop.id == todo.id
+      );
+      this.todos.splice(deleteTodoIndex, 1);
+    },
   },
 });

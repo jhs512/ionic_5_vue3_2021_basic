@@ -33,10 +33,23 @@
           </div>
         </section>
 
-        <section class="section section-todo-list">
+        <section class="mt-6 section section-todo-list">
+          <hr class="mb-6" />
+          <div class="con-padd">
+            <ion-badge color="primary">
+              <span>할일리스트</span>
+            </ion-badge>
+          </div>
           <ion-list>
+            <ion-list-header>
+              <ion-label>목록</ion-label>
+            </ion-list-header>
             <ion-item v-for="todo in todoStore.latestTodos" :key="todo.id">
               <ion-label>{{ todo.title }}</ion-label>
+              <ion-button slot="end" size="small" color="danger" @click="deleteTodo(todo)">
+                <font-awesome-icon slot="start" icon="minus" />
+                <span class="ml-1">삭제</span>
+              </ion-button>
             </ion-item>
           </ion-list>
         </section>
@@ -47,7 +60,7 @@
 
 <script setup lang="ts">
 import { useTodoStore } from '@/store/todo';
-import { IonBadge, IonButton, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { IonBadge, IonButton, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonListHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 import { ref } from '@vue/reactivity';
 
 const todoStore = useTodoStore()
@@ -64,6 +77,10 @@ function addNewTodo() {
 
   todoStore.addTodo(newTodoTitleRef.value);
   newTodoTitleRef.value = '';
+}
+
+function deleteTodo(todo: Todo) {
+  todoStore.deleteTodo(todo);
 }
 </script>
 
